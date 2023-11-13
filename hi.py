@@ -6,11 +6,9 @@ def paid(user):
 
 def give_access(has_paid):
     if has_paid:
-        print("Hai!! OwO")
-        return # Tiene acceso
+        return # Has access
     else:
-        print("NO >:v")
-        return # Tiene acceso
+        return # Doesn't have acces
         
 url = "https://{LOCKILINK}.spaces.nexudus.com/en/profile?_resource=Coworker"
 
