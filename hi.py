@@ -1,21 +1,29 @@
 import requests
 
-url = 'https://{LOCKILINK}.spaces.nexudus.com/en?_resource=Coworker&_depth=2'
+def paid(user):
+    status = user.get("IsPaidForCustomer", False)
+    return status
 
-response = requests.get(url)
+def give_access(has_paid):
+    if has_paid:
+        print("Hai!! OwO")
+        return # Tiene acceso
+    else:
+        print("NO >:v")
+        return # Tiene acceso
+        
+url = "https://{LOCKILINK}.spaces.nexudus.com/en/profile?_resource=Coworker"
+
+headers = {
+    "accept": "application/json",
+    "Content-Type": "application/json"
+}
+
+response = requests.get(url, headers=headers)
 
 if response.status_code == 200:
-    data = response.json()  # Assuming the response is in JSON format
-    # Process the data as needed
+    data = response.json()
+    user = paid
 else:
     print(f'Error: {response.status_code}')
     
-    
-user_data 
-
-pago = user_data.get("IsPaidForCustomer")
-
-if pago:
-    # Tiene acceso
-else: 
-    # No tiene acceso
